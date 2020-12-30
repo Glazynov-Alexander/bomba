@@ -24,16 +24,13 @@ let LeftBlock = ({
   }
 
   let openMenu = (id) => {
-    console.log(path);
-    console.log(g);
     if (path.location.pathname.replace("/task/", "")) {
       upMenu(menu === id ? false : id);
       path.push(`/task/${id}`);
     }
-    if (path.location.pathname) {
-      upMenu(menu === id ? false : id);
+
       // path.push(`/task/${id}`);
-    }
+
   };
 
   async function create(e, text) {

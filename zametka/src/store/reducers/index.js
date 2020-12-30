@@ -21,7 +21,6 @@ const tasksReducer = (state = initialState, action ) => {
         }
         case "UPDATE_BODY": {
             return {...state, tasks: state.tasks.map(e => {
-
                     if (e._id === action.id) {
                          e.text = action.text
                         return e
