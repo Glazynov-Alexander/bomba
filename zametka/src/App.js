@@ -1,5 +1,5 @@
 import "./App.css";
-import React, {useCallback, useEffect} from "react";
+import React, {useCallback} from "react";
 import { Route } from "react-router-dom";
 import LeftBlock from "./Components/left-Block";
 import RightBlock from "./Components/right-block";
@@ -48,7 +48,6 @@ function App({
         updateTitle={updateTitle}
         deleteTask={deleteTask}
         path={path.history}
-        g= {path}
       />
       <Route
         path={`/task/:id`}

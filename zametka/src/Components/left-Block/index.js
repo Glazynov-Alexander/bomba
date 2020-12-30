@@ -10,7 +10,7 @@ let LeftBlock = ({
   upOpacity,
   createTask,
   path,
-  g,
+
 }) => {
   let [text, setText] = useState();
   let [field, opacityField] = useState();
@@ -24,18 +24,19 @@ let LeftBlock = ({
   }
 
   let openMenu = (id) => {
-    if (path.location.pathname.replace("/task/", "")) {
+    // if (path.location.pathname.replace("/task/", "")) {
       upMenu(menu === id ? false : id);
       path.push(`/task/${id}`);
-    }
-
-      // path.push(`/task/${id}`);
-
+    // }
+    //   upMenu(menu === id ? false : id);
+    //   path.push(`/task/${id}`);
   };
 
   async function create(e, text) {
     if (e.code === "Enter") {
-      await createTask(text);
+      await createTask(text).then(res => {
+          path.push(`/task/${res.task._id}`);
+      });
       opacityField(false);
     }
   }

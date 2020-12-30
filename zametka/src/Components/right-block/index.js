@@ -8,8 +8,6 @@ let RightBlock = (props) => {
        }
     }
 
-    console.log(props)
-
     if (!props.task || !props.task[0]) {
         return null
     }
