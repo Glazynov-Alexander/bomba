@@ -1,0 +1,11 @@
+.App {
+    padding: 0;
+    display: flex;
+    width: 1400px;
+    margin: auto;
+}
+.linkTask {
+    color: coral;
+    font-weight: bold;
+}
+

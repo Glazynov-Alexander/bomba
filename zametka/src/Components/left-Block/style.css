@@ -1,0 +1,101 @@
+.leftBlock {
+    width: 250px;
+}
+
+.bool {
+    display: flex;
+}
+
+.bool div {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 2px;
+}
+
+.bool div:first-child {
+    background-color: red;
+}
+
+.bool div:nth-child(2) {
+    background-color:yellow;
+
+}
+
+.bool div:last-child {
+    background-color: green;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+.listTask ul {
+
+   padding: 0;
+}
+
+a {
+    color:black;
+    text-decoration: none;
+}
+
+.menuToggle {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: black;
+    top: 0;
+}
+.menuToggle:after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: black;
+    margin-top: 5px;
+}
+
+.menuToggle:before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: black;
+    margin-top: 10px;
+}
+.listTask ul li {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+.menu {
+    padding: 0;
+    margin-bottom: 25px;
+    position: absolute;
+    left: 400px;
+    border: 2px solid;
+    background: #fff;
+}
+.menu li {
+    width: 100px;
+    height: 15px;
+    margin: 0;
+}
+.menu li p{
+    margin: 0;
+}
+
+.menuClick {
+
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    padding: 4px 10px 15px 10px;
+    border-radius: 4px;
+
+}
