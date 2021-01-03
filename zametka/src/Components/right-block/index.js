@@ -20,7 +20,9 @@ let RightBlock = (props) => {
                                         onBlurCapture={(e) => upText(e, e.target.value)}
                                         onKeyDown={e => upText(e, e.target.value)}
                                         type="text" defaultValue={props.task[0].text}/>
-                    :<div style={{wordWrap: "break-word", width:"900px"}} >{props.task[0].text}</div>
+                    :<div><ol>
+                    <li><div style={{wordWrap: "break-word", width:"900px"}} >{props.task[0].text}</div></li>
+                    </ol></div>
             }
         </div>
     )

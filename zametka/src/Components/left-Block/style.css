@@ -6,126 +6,34 @@
     border-bottom-left-radius: 8px;
 }
 
-.bool {
-    display: flex;
-    margin-left: 10px;
-}
-
-.bool div {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    margin: 2px;
-}
-
-.bool div:first-child {
-    background-color: red;
-}
-
-.bool div:nth-child(2) {
-    background-color:yellow;
-}
-
-.bool div:last-child {
-    background-color: green;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    width: 235px;
-    margin-left: 5px;
-}
 .listTask {
-   
-}
-.listTask ul {
-   padding: 0;
+
 }
 
-a {
-    color:black;
+.listTask  {
+    padding: 0;
+
+}
+
+
+.listTask  li a {
+    color: #fff;
     text-decoration: none;
 }
 
-.menuToggle {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: white;
-    top: 0;
-    opacity: 0;
-}
-.menuToggle:after {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: white;
-    margin-top: 5px;
-}
-
-.menuToggle:before {
-    content: '';
-    position: absolute;
-    display: block;
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background-color: white;
-    margin-top: 10px;
-}
-.listTask ul li {
+.listTask  li {
     display: flex;
     justify-content: space-between;
-    margin: 10px;
     align-items: center;
     position: relative;
-    margin: 0;
 }
 
-.menu {
-    padding: 0;
-    margin-bottom: 25px;
-    position: absolute;
-    left: 400px;
-    border: 2px solid;
-    background: #fff;
-}
 
-.menu li {
-    width: 100px;
-    height: 15px;
-    margin: 0;
-    align-items: center;
-}
-
-.menu li p{
-    margin: 0;
-}
-
-.menuClick {
-    background-color: rgba(0, 0, 0, .1);
-    justify-content: center;
-    padding: 4px 10px 15px 10px;
-    border-radius: 4px;
-    display: table;
-    position: absolute;
-    right: 13px;
-    opacity: 0;
-    top: 10px;
-}
 
 .link {
     padding: 10px 100px 10px 20px;
-    width: 78px;
     text-overflow: ellipsis;
     overflow: hidden;
     width: 100%;
-color:#fff;
 }
-.menu {
-    color: black
-}
+
