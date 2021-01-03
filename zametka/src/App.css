@@ -3,9 +3,26 @@
     display: flex;
     width: 1400px;
     margin: auto;
-}
-.linkTask {
-    color: coral;
-    font-weight: bold;
+    margin-top: 200px;
+    box-shadow: 0 0 22px rgba(0,0,0 , .3);
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
+.linkTask {
+    background-color: rgb(255, 191, 14);
+    color:black;
+    padding: 10px 100px 10px 20px;
+    width: 78px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);
+}
+
+.linkTask .menuToggle {
+    opacity: 1;
+}
+
+.linkTask .menuClick {
+    opacity: 1;
+}

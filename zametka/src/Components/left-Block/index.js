@@ -78,13 +78,12 @@ let LeftBlock = ({
             ? tasks.map((elem, index) => {
                 return (
                   <li key={elem._id}>
-                    <NavLink
-                      activeClassName="linkTask"
+                    <NavLink className="link"
+                      activeClassName="linkTask" 
                       to={`/task/${elem._id}`}
                     >
                       {elem.title}
-                    </NavLink>
-                    <div
+                      <div
                       className="menuClick"
                       onClick={(e) => openMenu(elem._id)}
                     >
@@ -120,6 +119,8 @@ let LeftBlock = ({
                         </ul>
                       ) : null}
                     </div>
+                    </NavLink>
+                   
                   </li>
                 );
               })
