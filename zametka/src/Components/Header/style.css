@@ -1,0 +1,31 @@
+
+.bool {
+    display: flex;
+    margin-left: 10px;
+}
+
+.bool div {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    margin: 2px;
+}
+
+.bool div:first-child {
+    background-color: red;
+}
+
+.bool div:nth-child(2) {
+    background-color: yellow;
+}
+
+.bool div:last-child {
+    background-color: green;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 235px;
+    margin-left: 5px;
+}

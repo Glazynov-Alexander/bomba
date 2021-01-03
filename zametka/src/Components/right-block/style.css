@@ -5,5 +5,7 @@
 }
 
 .rightBlock h2{
-    margin: 0;
+    margin: 0 0 20px 0;
+    width: 750px;
+    word-break: break-word;
 }

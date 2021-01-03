@@ -11,12 +11,12 @@
 
 .linkTask {
     background-color: rgb(255, 191, 14);
-    color:black;
+    color: black;
     padding: 10px 100px 10px 20px;
     width: 78px;
     text-overflow: ellipsis;
     overflow: hidden;
-    box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
 }
 
 .linkTask .menuToggle {
@@ -26,3 +26,4 @@
 .linkTask .menuClick {
     opacity: 1;
 }
+
