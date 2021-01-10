@@ -1,34 +1,32 @@
 import React, {useRef, useEffect, useState} from 'react'
 import './style.css'
 
+let pressed = new Set()
+
 let RightBlock = (props) => {
     if (!props.task || !props.task[0]) {
         return null
     }
-    let flag = false
+
     let [text, updateText] = useState(props.task[0].text)
-    let [one, upOne] = useState(2)
-    const titleRef = useRef();
+
 
     function upText(e) {
-        if (e.code === "ShiftLeft" || e.code === "ShiftRight") flag = true
-        if (e.code === "Enter" && flag) {}
-
-        if (!flag && (e.type === "blur" || e.code === "Enter")) {
-            props.upBody(props.task[0]._id, e.target.value.replace(/\n/g, "<br/>"))
-            props.upOpacity(false)
+        pressed.add(e.code);
+        for (let code of ["ShiftLeft", "Enter"]) {
+            if ((pressed.has("Enter") && !pressed.has("ShiftLeft")) || e.type === "blur") {
+                if (e.target.value.length !== 0 && (e.type === "blur" || e.code === "Enter")) {
+                    props.upBody(props.task[0]._id, text.split('\n'))
+                    props.upOpacity(false)
+                }
+            }
         }
     }
 
-    useEffect(() => {
-        if (titleRef.current) {
-            titleRef.current.innerHTML = `<div >${props.task[0].text}</div>`
-        }
-    }, [props.task, one])
 
     return (
         <div className="rightBlock">
-            <h2>{props.task[0].title}</h2>
+
             {
                 props.position || !props.task[0].text ?
                     <textarea style={{width: "600px", height: "300px"}} autoFocus={true}
@@ -36,8 +34,12 @@ let RightBlock = (props) => {
                               onBlurCapture={upText}
                               rows="10" cols="20" wrap="hard"
                               onKeyDown={upText}
-                              type="text" defaultValue={text.replaceAll("<br/>", " \n")}/>
-                    : <div style={{width: "900px"}} ref={titleRef}></div>
+                              onKeyUp={e => e.code === "ShiftLeft" ? pressed.delete("ShiftLeft") : null}
+                              type="text"
+                              defaultValue={props.task[0].text ? props.task[0].text.join().replaceAll(",", " \n") : ''}/>
+                    : <pre style={{width: "900px"}}><h2 className="string title">{props.task[0].title}
+                    </h2> {text ? props.task[0].text.map((e, index) => (
+                        <p className="string" key={index}>{e ? e : " "}</p>)) : null}</pre>
 
             }
         </div>

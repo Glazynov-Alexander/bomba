@@ -32,16 +32,18 @@
 .menu {
     color: black
 }
+
 .menu {
     padding: 0;
     margin-bottom: 25px;
     position: absolute;
-    left: 38px;
+    left: 42px;
     border: 1px solid;
     background: #fff;
     border-radius: 4px;
     background: gray;
     min-width: 150px;
+    z-index: 2;
 }
 
 .menu li {

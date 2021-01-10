@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
 import src from "../../images/3335888.svg";
 import "./style.css";
 
-let Menu = ({ deleteTask, updateTitle, upOpacity, path,elem}) => {
+let Menu = ({deleteTask, updateTitle, upOpacity, path, elem}) => {
 
     let [text, setText] = useState();
 
@@ -11,24 +11,23 @@ let Menu = ({ deleteTask, updateTitle, upOpacity, path,elem}) => {
     async function upTitle(e, text, id) {
         if (e.code === "Enter" || e.type === "blur") {
             await updateTitle(id, text);
-            setText("");
+            setText();
         }
     }
 
     let openMenu = (id) => {
-        // if (path.location.pathname.replace("/task/", "")) {
+
         upMenu(menu === id ? false : id);
         path.push(`/task/${id}`);
-        // }
-        //   upMenu(menu === id ? false : id);
-        //   path.push(`/task/${id}`);
     };
 
 
     let deleteTaskPath = (id) => {
-        path.push(`/task`);
-        return deleteTask(id);
+        // path.push(`/task`);
+        path.go(`/task`);
+        deleteTask(id);
     };
+
 
     return (
 
@@ -37,8 +36,10 @@ let Menu = ({ deleteTask, updateTitle, upOpacity, path,elem}) => {
             onClick={(e) => openMenu(elem._id)}
         >
             <div className="menuToggle"></div>
-            {menu === elem._id || text === elem._id ? (
+            {menu === elem._id ? (
+
                 <ul className="menu">
+
                     <li>
                         <p onClick={(e) => deleteTaskPath(elem._id)}>
                             delete task

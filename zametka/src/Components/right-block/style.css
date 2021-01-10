@@ -1,11 +1,39 @@
 .rightBlock {
     padding: 30px;
-   
-    width: 100%;
+    width: 70%;
 }
 
 .rightBlock h2{
     margin: 0 0 20px 0;
     width: 750px;
     word-break: break-word;
+}
+pre {
+    counter-reset: thecodenumbering;
+    margin: 0;
+    position: relative;
+}
+
+.string {
+    counter-increment: thecodenumbering;
+    margin: 0 0 4px 0;
+    font-size: 14px;
+
+}
+
+.string:before {
+    position:absolute;
+    font-size: 20px;
+    font-weight: bold;
+    right: -190px;
+    content: counter(thecodenumbering);
+    color: #5b5b5b;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+}
+
+.title {
+    margin: 0 !important;
+    font-size: 25px !important;
 }
