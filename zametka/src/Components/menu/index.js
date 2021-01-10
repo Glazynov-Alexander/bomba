@@ -1,11 +1,10 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import src from "../../images/3335888.svg";
 import "./style.css";
 
-let Menu = ({deleteTask, updateTitle, upOpacity, path, elem}) => {
+let Menu = ({ deleteTask, updateTitle, upOpacity, path,elem}) => {
 
     let [text, setText] = useState();
-
     let [menu, upMenu] = useState();
 
     async function upTitle(e, text, id) {
@@ -16,7 +15,6 @@ let Menu = ({deleteTask, updateTitle, upOpacity, path, elem}) => {
     }
 
     let openMenu = (id) => {
-
         upMenu(menu === id ? false : id);
         path.push(`/task/${id}`);
     };
@@ -28,7 +26,6 @@ let Menu = ({deleteTask, updateTitle, upOpacity, path, elem}) => {
         deleteTask(id);
     };
 
-
     return (
 
         <div
@@ -36,7 +33,7 @@ let Menu = ({deleteTask, updateTitle, upOpacity, path, elem}) => {
             onClick={(e) => openMenu(elem._id)}
         >
             <div className="menuToggle"></div>
-            {menu === elem._id ? (
+            {menu === elem._id ||text ? (
 
                 <ul className="menu">
 
