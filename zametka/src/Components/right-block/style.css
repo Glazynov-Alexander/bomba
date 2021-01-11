@@ -1,5 +1,5 @@
 .rightBlock {
-    padding: 30px;
+    padding: 30px 0 30px 0;
     width: 70%;
 }
 
@@ -7,11 +7,13 @@
     margin: 0 0 20px 0;
     width: 750px;
     word-break: break-word;
+    position: relative;
+    bottom: 0;
 }
 
 pre {
     counter-reset: thecodenumbering;
-    margin: 0;
+    margin: auto;
     position: relative;
 }
 
@@ -19,28 +21,34 @@ pre {
     counter-increment: thecodenumbering;
     margin: 0 0 4px 0;
     font-size: 16px;
+    position: relative;
 }
 
 .string:before {
     position: absolute;
     font-size: 14px;
     font-weight: bold;
-    right: -190px;
+    right: -150px;
     content: counter(thecodenumbering);
     color: #5b5b5b;
     width: 20px;
     height: 20px;
     text-align: center;
+    bottom: 0;
 }
+
 
 .title {
     margin: 0 !important;
     font-size: 25px !important;
 }
-
+.title:before {
+    right: -299px;
+}
 .textArea {
     width: 95%;
     height: 300px;
     outline: none;
-    resize: none
+    resize: none;
+    margin-left: 50px;
 }

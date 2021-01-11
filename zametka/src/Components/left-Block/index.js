@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 
 import {NavLink} from "react-router-dom";
-import src from "../../images/3335888.svg";
 import "./style.css";
 import Menu from '../menu'
 import Header from '../Header'
