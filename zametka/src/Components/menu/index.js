@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import src from "../../images/3335888.svg";
 import "./style.css";
 
@@ -14,11 +14,17 @@ let Menu = ({ deleteTask, updateTitle, upOpacity, path,elem}) => {
         }
     }
 
-    let openMenu = (id) => {
+    let openMenu = useCallback(  (id) => {
+
         upMenu(menu === id ? false : id);
         path.push(`/task/${id}`);
-    };
+    });
 
+    document.addEventListener("click", function(e) {
+        if (e.target.className !== "menuClick") {
+            upMenu(false);
+        }
+    });
 
     let deleteTaskPath = (id) => {
         // path.push(`/task`);
@@ -26,46 +32,44 @@ let Menu = ({ deleteTask, updateTitle, upOpacity, path,elem}) => {
         deleteTask(id);
     };
 
-    return (
-
-        <div
-            className="menuClick"
-            onClick={(e) => openMenu(elem._id)}
-        >
+    return (<div>
             <div className="menuToggle"></div>
-            {menu === elem._id ||text ? (
+            <div
+                className="menuClick"
+                onClick={(e) => openMenu(elem._id)}
+            >
 
-                <ul className="menu">
+                {menu === elem._id ||text ? (
 
-                    <li>
-                        <p onClick={(e) => deleteTaskPath(elem._id)}>
-                            delete task
-                        </p>
-                    </li>
-                    <li>
-                        <p onClick={(e) => upOpacity(true)}>update text</p>
-                    </li>
-                    <li>
-                        {text === elem._id ? (
-                            <input
-                                onBlurCapture={(e) =>
-                                    upTitle(e, e.target.value, elem._id)
-                                }
-                                autoFocus={true}
-                                onKeyDown={(e) =>
-                                    upTitle(e, e.target.value, elem._id)
-                                }
-                                defaultValue={elem.title}
-                            />
-                        ) : (
-                            <p onClick={(e) => setText(elem._id)}>
-                                update title
+                    <ul  className="menu">
+
+                        <li onClick={(e) => deleteTaskPath(elem._id)}>
+                            <p >
+                                delete task
                             </p>
-                        )}
-                    </li>
-                </ul>
-            ) : null}
+                        </li>
+                        <li onClick={(e) => upOpacity(true)}>
+                            <p >update text</p>
+                        </li>
+                        <li onClick={(e) =>   setText(elem._id)}>
+                            {text === elem._id ? (
+                                <input
+                                    onBlurCapture={(e) => upTitle(e, e.target.value, elem._id)}
+                                    autoFocus={true}
+                                    onKeyDown={(e) => upTitle(e, e.target.value, elem._id)}
+                                    defaultValue={elem.title}
+                                />
+                            ) : (
+                                <p >
+                                    update title
+                                </p>
+                            )}
+                        </li>
+                    </ul>
+                ) : null}
+            </div>
         </div>
+
     );
 };
 export default Menu;

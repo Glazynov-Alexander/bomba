@@ -23,18 +23,14 @@ export function getTasksState  ()  {
 }
 
 export function createTask  (title)  {
-  return async (dispatch) => {
+    return async (dispatch) => {
       let tasks = await createTaskAPI(title);
-      debugger
-
       return dispatch(createTaskAC(tasks.data.task));
   };
 }
 
 export function deleteTask  (id)  {
-
   return async (dispatch) => {
-
      await deleteTaskAPI(id);
     return dispatch(deleteTaskAC(id));
   };

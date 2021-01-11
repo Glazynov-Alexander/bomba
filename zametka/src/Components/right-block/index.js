@@ -16,7 +16,7 @@ let RightBlock = (props) => {
         for (let code of ["ShiftLeft", "Enter"]) {
             if ((pressed.has("Enter") && !pressed.has("ShiftLeft")) || e.type === "blur") {
                 if (e.target.value.length !== 0 && (e.type === "blur" || e.code === "Enter")) {
-                    props.upBody(props.task[0]._id, text.split('\n'))
+                    props.upBody(props.task[0]._id, typeof text === "string" ?text.split('\n') :text)
                     props.upOpacity(false)
                 }
             }
@@ -29,7 +29,7 @@ let RightBlock = (props) => {
 
             {
                 props.position || !props.task[0].text ?
-                    <textarea style={{width: "600px", height: "300px"}} autoFocus={true}
+                    <textarea className="textArea" autoFocus={true}
                               onChange={e => updateText(e.target.value)}
                               onBlurCapture={upText}
                               rows="10" cols="20" wrap="hard"

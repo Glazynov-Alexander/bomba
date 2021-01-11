@@ -9,13 +9,13 @@ import {compose} from "redux";
 import {withRouter} from "react-router-dom";
 import {updateBody, updateTitle, createTask, getTasksState, deleteTask} from "./store/thunks";
 
-function App({deleteTask, updateTitle, getTasksState, opacity, updateBody, ...path}) {
+function App({deleteTask, updateTitle, createTask, getTasksState, opacity, updateBody, ...path}) {
     let props = useSelector((state) => ({tasks: state.tasks.tasks, position: state.tasks.position}))
 
 
     useEffect(async () => {
         if (!props.tasks) {
-            await getTasksState()
+           return  await getTasksState()
         }
     }, [props.tasks])
 
@@ -66,5 +66,6 @@ export default compose(
         opacity,
         getTasksState,
         updateBody,
+        createTask
     })
 )(App);
