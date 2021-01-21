@@ -24,19 +24,11 @@ let Menu = ({deleteTask, updateTitle, upOpacity, path, elem}) => {
     }, [path, menu]);
 
     document.addEventListener("click", function (event) {
-        if (event.target.className !== "menuClick" && event.target.localName !== "li") {
+        if ( menu && event.target.className !== "menuClick" && event.target.localName !== "li") {
             upMenu(false);
         }
-        // if (event.target.localName !== "li" && event.target.className === "updateTitle") {
-        //     setText("")
-        // }
     });
 
-    let deleteTaskPath = (id) => {
-        path.push(`/task`);
-        path.go(`/task`);
-        deleteTask(id);
-    };
 
     return (<div>
             <div className="menuToggle"/>
@@ -49,7 +41,7 @@ let Menu = ({deleteTask, updateTitle, upOpacity, path, elem}) => {
 
                     <ul className="menu">
 
-                        <li onClick={(e) => deleteTaskPath(elem._id)}>
+                        <li onClick={(e) => deleteTask(elem._id)}>
                             <p>delete task</p>
                         </li>
                         <li onClick={ e =>upOpacity(true)}>

@@ -1,4 +1,4 @@
-let initialState = {tasks: null, position: false}
+let initialState = {tasks: [], position: false}
 
 
 const tasksReducer = (state = initialState, action ) => {

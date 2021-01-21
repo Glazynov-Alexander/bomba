@@ -16,14 +16,12 @@ const Header = ({opacityField, create, field}) => {
                 alt=""
             />
 
-            {field ? (
-                <div
-                    onBlurCapture={(e) => opacityField(false)}
-                    onKeyDown={(e) => create(e, e.target.value)}
-                    style={{ position: "fixed" }}
-                >
-                    <input autoFocus={true} type="text" placeholder={"title"} />
-                </div>
+            {field ? (<input onBlurCapture={(e) => opacityField(false)}
+                           onKeyDown={(e) => create(e, e.target.value)}
+                           style={{ position: "fixed" }}
+                           autoFocus={true}
+                           type="text"
+                           placeholder={"title"} />
             ) : null}
         </div>
     )

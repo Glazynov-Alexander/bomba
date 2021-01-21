@@ -5,8 +5,7 @@ let pressed = new Set()
 
 let RightBlock = (props) => {
 
-    let [text, updateText] = useState( props.task[0].text )
-
+    let [text, updateText] = useState( props.task[0]?  props.task[0].text : false )
 
     function upText(e) {
         pressed.add(e.code);
@@ -21,10 +20,11 @@ let RightBlock = (props) => {
         }
     }
 
+    // console.log(props.task)
     return (
         <div className="rightBlock">
+            {!props.task[0] ? null :
 
-            {
                 props.position || !props.task[0].text ?
                     <textarea className="textArea" autoFocus={true}
                               onChange={e => updateText(e.target.value)}
